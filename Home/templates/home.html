@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <style type="text/css">
+    	input,select {
+		   
+		            width:100%;
+		        }
+		       .pad{
+		       	margin-top : 200px;
+		       }
+    </style>
+</head>
+<body class='bg-dark'>
+
+	<div class='container-fluid '>
+		<div class='row text-white '>
+			
+		</div>
+		<div class='row text-white'>
+			<div class='col-sm-4'></div>
+			<div class='col-sm-4 pad'>
+				
+					<div class='text-center'><h1>TIC-TAC-TOE</h1><br><br></div>
+				
+				<form method='POST'>
+					{% csrf_token%}
+					<label>Enter username</label><br>
+					<input type="text" name="username"><br><br>
+					<label for='options'>Choose roomcode option</label><br>
+					<select id='options' name='options'>
+						<option deselected>Choose</option>
+						<option value=1>Have Room Code</option>
+						<option value=2>Create Room Code</option>
+					</select><br><br>
+					<label for='roomcode'>Room Code</label><br>
+					<input type="text" name="roomcode" id='roomcode'><br><br>
+					<input class='btn-secondary' type="Submit" name="play" value='Play'><br>
+
+				</form>
+			
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+ <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
