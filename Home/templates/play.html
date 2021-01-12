@@ -361,28 +361,43 @@
           else{checkGameEnd();}
           
         }
+        
+        
         function setText(index,value){
             var data={
                 'player':player,
                 'index':index,
-                'type':'running'
+                'type':'running',
+                
+
+
             }
+
+            
+          
             if(gameState[parseInt(index)]==''){
+                l=gameState.length
                 gameState[parseInt(index)]=value
                 elementArray[parseInt(index)].innerHTML=value
-
+               
                 socket.send(JSON.stringify({data}))
                 checkWon(value,player)
             }
             else{
                 alert("You can not fill that space!")
             }
+       
+       // else{
+       //  swal("Alert","Wait for your turn","warning")
+       // }
             
         }
 
         function setAnotherUserText(index,value){
+
             gameState[parseInt(index)]=value
                 elementArray[parseInt(index)].innerHTML=value
+
         }
 
         socket.onopen = function(e){
@@ -393,11 +408,13 @@
             if(data.payload.type=='end' && data.payload.player !== player){
                 swal("Sorry!","You lost!","error")
             }
-            else if(data.payload.type =='over'){
+            else if(data.payload.type =='over' && data.payload.player!==player){
                 swal("Game Over!","Game end No one won","warning")
                 
             }else if(data.payload.type=='running' && data.payload.player !== player){
-              setAnotherUserText(data.payload.index, data.payload.player)   
+
+              setAnotherUserText(data.payload.index, data.payload.player) 
+
             }
 
            

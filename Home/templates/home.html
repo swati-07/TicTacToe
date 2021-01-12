@@ -29,7 +29,13 @@
 			<div class='col-sm-4 pad'>
 				
 					<div class='text-center'><h1>TIC-TAC-TOE</h1><br><br></div>
-				
+				 {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-light">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
 				<form method='POST'>
 					{% csrf_token%}
 					<label>Enter username</label><br>

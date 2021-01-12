@@ -11,10 +11,10 @@ def homeview(request):
 		if option=='1':
 			game=Game.objects.filter(room_code=room_code).first()
 			if game is None:
-				message.success(request,'Room code not found')
+				messages.success(request,'Room code not found')
 				return redirect('/')
 			if game.is_over:
-				message.success(request,'Game is over')
+				messages.success(request,'Game is over')
 				return redirect('/')
 			game.game_opponent= username
 			game.save()
